@@ -1,48 +1,70 @@
-const cat = document.getElementById("cat");
+const paragraph = document.querySelector("#paragraph");
+// const paragraph = document.getElementById("paragraph");
+// console.log(paragraph);
 
-//
-// cat.style.background = "pink";
-cat.innerHTML = "<ul> <li> hi </li> </ul>";
+const link = document.querySelector(".link");
+link.setAttribute("href", "http://www.google.com");
+link.setAttribute("target", "_blank");
+// const links = document.querySelectorAll(".class1, .class2, #withId")
+// console.log(link);
+// console.log(paragraph.id);
 
-// background-color : red;
-cat.style.backgroundColor = "red";
+// console.log(paragraph.id);
+paragraph.setAttribute("id", "info-paragraph");
+paragraph.removeAttribute("id");
+paragraph.setAttribute("class", "paragraph");
 
-cat.style.border = "2px green solid";
-// font-size: 50px
-cat.style.fontSize = "50px";
-// margin-top
-cat.style.marginTop = "30px";
+// console.log(paragraph.getAttribute("id"));
+// console.log(paragraph.id);
 
-// padding-bottom
-cat.style.paddingBottom = "30px";
+// create HTML element
+let parent = document.getElementsByTagName("body")[0];
+// console.log(parent);
+const h2Tag = document.createElement("h2");
+h2Tag.innerHTML = "H2 tag created with pure JS";
+let text = document.createTextNode("<h2>Hello there</h2>");
 
-cat.style.margin = "2em 0 1em .5em";
+let h1Tag = document.createElement("h1");
+h1Tag.innerHTML = "Heading 1 - comes before Heading 2";
 
-const mice = document.getElementsByClassName("mouse");
+// console.log(h1Tag);
 
-// for (let i = 0; i < mice.length; i++) {
-//   mice[i].innerHTML = "Mouse";
-// }
+parent.appendChild(h2Tag);
+parent.appendChild(text);
+parent.insertBefore(h1Tag, h2Tag);
 
-[...mice].forEach((element) => {
-  element.innerHTML = "Any value";
-});
+// console.log(parent.childNodes);
+// console.log(parent.childNodes[parent.childNodes.length - 1]);
 
-// let divs = document.getElementsByTagName("div");
-// console.log("divs are :", divs);
+let button = document.getElementById("add-item-button");
+// console.log(button);
+button.onclick = function () {
+  console.log("clicked");
+};
 
-let firstDiv = document.querySelector("div");
-
-// console.log(firstMouse); // <== <div class="mouse"></div>
-// console.log(firstDiv);
-
-let allDivs = document.querySelectorAll(".mouse, #cat");
-
-// allDivs.forEach((element) => {
-//   element.innerHTML = "Query Selector All is used";
+const input = document.getElementById("input");
+// input.addEventListener("input", (event) => {
+//   console.log(event.target.value);
 // });
 
-let firstMouse = document.querySelector(".mouse");
-firstMouse.style.background = "yellow";
-console.log(firstMouse.className);
-console.log(firstMouse.id);
+let input2 = document.getElementsByTagName("input")[0];
+let sendButton = document.getElementById("send-btn");
+
+// without adding an event listener
+sendButton.onclick = function () {
+  console.log(input2);
+  console.log(input2.value);
+};
+
+// with an event listener
+// sendButton.addEventListener("click", () => {
+//   console.log(input2.value);
+// });
+
+let liTags = document.getElementsByTagName("li");
+console.log(liTags);
+for (let i = 0; i < liTags.length; i++) {
+  liTags[i].onclick = function (event) {
+    console.log(event.currentTarget.innerHTML);
+  };
+}
