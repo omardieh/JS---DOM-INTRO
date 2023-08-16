@@ -1,0 +1,13 @@
+.dog {
+  color: #ffffff;
+}
+
+.button {
+  border: 1px solid black;
+  border-radius: 14px;
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+  -ms-border-radius: 14px;
+  -o-border-radius: 14px;
+  background: pink;
+}
